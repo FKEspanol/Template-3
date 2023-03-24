@@ -1,8 +1,12 @@
-<div class="w-full py-5 bg-stone-800">
+---
+import Button from "./button.astro";
+---
+
+<div class="w-full py-5 fixed z-10">
   <div class="md:container md:mx-auto px-3 md:px-0">
     <div class="flex justify-between items-center">
       <h1 class="text-white text-3xl font-bold uppercase">
-        <a href="#">Brand</a>
+        <a href="#">Zelion</a>
       </h1>
       <div
         class="hidden lg:flex justify-evenly text-white items-center gap-x-8"
@@ -13,10 +17,7 @@
         <a href="#portfolio">Portfolio</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
-        <button
-          class="bg-cyan-600 hover:bg-cyan-700 px-7 py-2 rounded-3xl capitalized"
-          >Get Started</button
-        >
+        <Button>Get Started</Button>
       </div>
       <i class="lg:hidden fas fa-bars text-white text-2xl"></i>
     </div>
