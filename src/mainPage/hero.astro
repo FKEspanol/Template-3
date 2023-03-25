@@ -1,0 +1,103 @@
+---
+import Container from "../components/container.astro";
+import Button from "../components/button.astro";
+
+interface HeroContent {
+  header: string;
+  paragraph: string;
+  backgroundImage: string;
+}
+
+const contents: HeroContent[] = [
+  {
+    header: "Revolutionizing Industry with Innovation",
+    paragraph:
+      "With cutting-edge technology and a team of experts, Zelion is transforming Industry. Our mission is to provide seamless and efficient solutions to meet the needs of our clients.",
+    backgroundImage: "hero-1.jpg",
+  },
+  {
+    header: "The Future of Industry Starts Here",
+    paragraph:
+      "Zelion is leading the way in the world of Industry. Our focus on innovation and customer-centric approach enables us to create solutions that address real-world problems.",
+    backgroundImage: "hero-2.jpg",
+  },
+  {
+    header: "Empowering the Future",
+    paragraph:
+      "At Zelion, we're on a mission to revolutionize the Industry landscape. Our platform empowers businesses to make data-driven decisions, driving growth and profitability. Join us on the journey towards a better future.",
+    backgroundImage: "hero-3.jpg",
+  },
+];
+---
+
+<!-- Slider main container -->
+<div class="swiper w-full h-screen">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper relative">
+    <!-- Slides -->
+
+    {
+      contents.map((item) => {
+        return (
+          <div
+            class={`swiper-slide bg-cover bg-center w-screen`}
+            style={{
+              backgroundImage: `url('/images/${item.backgroundImage}')`,
+            }}
+          >
+            <div class="absolute inset-0 bg-stone-800 opacity-80" />
+            <Container>
+              <div class="block m-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 text-center">
+                <h1 class="text-5xl md:text-6xl font-semibold text-white mb-8 leading-snug">
+                  {item.header}
+                </h1>
+                <p class="text-xl text-white mb-7">{item.paragraph}</p>
+                <Button>Get Started</Button>
+              </div>
+            </Container>
+          </div>
+        );
+      })
+    }
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- If we need navigation buttons -->
+  <div
+    class="swiper-button-prev ml-5 w-14 h-14 rounded-full bg-neutral-500 text-white"
+  >
+  </div>
+  <div
+    class="swiper-button-next mr-5 w-14 h-14 rounded-full bg-neutral-500 text-white"
+  >
+  </div>
+</div>
+
+<script is:inline src="/js/swiper-bundle.min.js"></script>
+<script is:inline type="module">
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+    effect: "fade",
+
+    // autoplay: {
+    //   delay: 2000,
+    //   disableOnInteraction: false,
+    // },
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      bulletActiveClass: "swiper-pagination-bullet-active bg-white",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>

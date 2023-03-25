@@ -1,0 +1,10 @@
+---
+const { customClasses = "", type = "button" } = Astro.props;
+---
+
+<button
+  type={type}
+  class={`bg-primary hover:bg-cyan-700 px-7 py-2.5 rounded-3xl text-white capitalized ${customClasses}`}
+>
+  <slot />
+</button>
