@@ -48,10 +48,10 @@ const contents: HeroContent[] = [
             <div class="absolute inset-0 bg-stone-800 opacity-80" />
             <Container>
               <div class="block m-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 text-center">
-                <h1 class="text-5xl md:text-6xl font-semibold text-white mb-8 leading-snug">
+                <h1 class="text-5xl lg:text-6xl font-semibold text-white mb-8 leading-snug">
                   {item.header}
                 </h1>
-                <p class="text-xl text-white mb-7 xl:w-4/5 2xl:w-2/4 xl:mx-auto">
+                <p class="text-lg text-white mb-7 xl:w-4/5 2xl:w-2/4 xl:mx-auto">
                   {item.paragraph}
                 </p>
                 <Button additionalStyle="uppercase font-semibold">
@@ -84,6 +84,9 @@ const contents: HeroContent[] = [
     // Optional parameters
     direction: "horizontal",
     loop: true,
+    autoplay: {
+      delay: 2000,
+    },
     effect: "fade",
 
     // autoplay: {

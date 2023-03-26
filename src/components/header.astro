@@ -2,7 +2,7 @@
 import Button from "./button.astro";
 ---
 
-<div class="w-full py-10 fixed z-10">
+<div class="w-full py-8 fixed z-10">
   <div class="md:container md:mx-auto px-3 lg:px-14 xl:px-20 2xl:px-32">
     <div class="flex justify-between items-center">
       <h1 class="text-white text-3xl font-bold uppercase">
@@ -11,13 +11,15 @@ import Button from "./button.astro";
       <div
         class="hidden lg:flex justify-evenly text-white items-center gap-x-8"
       >
-        <a href="#" class="uppercase">Home</a>
-        <a href="#about" class="uppercase">About</a>
-        <a href="#services" class="uppercase">Services</a>
-        <a href="#portfolio" class="uppercase">Portfolio</a>
-        <a href="#team" class="uppercase">Team</a>
-        <a href="#contact" class="uppercase">Contact</a>
-        <Button additionalStyle="uppercase font-semibold">Get Started</Button>
+        <a href="#" class="uppercase text-sm font-medium">Home</a>
+        <a href="#about" class="uppercase text-sm font-medium">About</a>
+        <a href="#services" class="uppercase text-sm font-medium">Services</a>
+        <a href="#portfolio" class="uppercase text-sm font-medium">Portfolio</a>
+        <a href="#team" class="uppercase text-sm font-medium">Team</a>
+        <a href="#contact" class="uppercase text-sm font-medium">Contact</a>
+        <Button additionalStyle="uppercase font-semibold text-sm">
+          Get Started
+        </Button>
       </div>
       <i class="lg:hidden fas fa-bars text-white text-2xl"></i>
     </div>
