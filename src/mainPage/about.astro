@@ -1,0 +1,74 @@
+---
+import Section from "../components/section.astro";
+import Container from "../components/container.astro";
+import Button from "../components/button.astro";
+---
+
+<!-- start of about section -->
+<Section id="about">
+  <Container>
+    <div class="relative 2xl:w-10/12 mx-auto">
+      <div class="lg:w-7/12">
+        <h2
+          class="text-5xl text-center text-gray-600 leading-tight font-extrabold mb-14 lg:w-2/3 lg:text-start"
+        >
+          About us and our history
+        </h2>
+
+        <!--About Image -->
+        <div class="lg:w-7/12 mb-16 lg:mb-0 lg:absolute lg:top-0 lg:right-0">
+          <img src="/images/about.jpg" alt="About Image" class="w-full" />
+        </div>
+
+        <!--End of About Image -->
+
+        <!--Start of Our Story -->
+        <div class="w-full bg-[#f5f6f7]">
+          <div class="lg:w-2/3 p-10">
+            <h3
+              class="text-3xl text-center lg:text-start text-gray-600 font-bold mb-5"
+            >
+              Our Story
+            </h3>
+            <p class="text-base text-gray-600 mb-8">
+              Zelion is an innovative startup focused on sustainable agriculture
+              technology. Their cutting-edge products include advanced LED grow
+              lights and automated hydroponic systems, aimed at improving crop
+              yields and reducing environmental impact.
+            </p>
+            <ul class="mb-8">
+              <li class="flex items-center gap-x-4 mb-5">
+                <span class="text-primary">&#10003;</span>
+                <p class="text-sm italic">
+                  Their products include advanced LED grow lights and automated
+                  hydroponic systems.
+                </p>
+              </li>
+              <li class="flex items-center gap-x-4 mb-5">
+                <span class="text-primary">&#10003;</span>
+                <p class="text-sm italic">
+                  The company is at the forefront of innovation in the
+                  agriculture industry.
+                </p>
+              </li>
+              <li class="flex items-center gap-x-4 mb-5">
+                <span class="text-primary">&#10003;</span>
+                <p class="text-sm italic">
+                  With a focus on sustainability, Zelion is poised to make a
+                  significant impact on the future of farming.
+                </p>
+              </li>
+            </ul>
+            <p class="text-base text-gray-600 mb-5">
+              Zelion is a sustainable agriculture technology startup that
+              provides advanced LED grow lights and automated hydroponic systems
+            </p>
+            <Button>Learn More</Button>
+          </div>
+        </div>
+        <!---End Of Our Story -->
+      </div>
+    </div>
+  </Container>
+</Section>
+<!-- end of about section -->
