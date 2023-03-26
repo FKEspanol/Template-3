@@ -30,7 +30,7 @@ const contents: HeroContent[] = [
 ];
 ---
 
-<!-- Slider main container -->
+<!-- start of hero section --><!-- Slider main container -->
 <div class="swiper w-full h-screen">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper relative">
@@ -78,21 +78,20 @@ const contents: HeroContent[] = [
   </div>
 </div>
 
+<!-- end of hero section -->
+
 <script is:inline src="/js/swiper-bundle.min.js"></script>
 <script is:inline type="module">
   const swiper = new Swiper(".swiper", {
     // Optional parameters
     direction: "horizontal",
     loop: true,
-    autoplay: {
-      delay: 2000,
-    },
     effect: "fade",
 
-    // autoplay: {
-    //   delay: 2000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
 
     // If we need pagination
     pagination: {
