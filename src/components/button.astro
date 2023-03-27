@@ -1,10 +1,10 @@
 ---
-const { additionalStyle = "", type = "button" } = Astro.props;
+const { className = "", type = "button" } = Astro.props;
 ---
 
 <button
   type={type}
-  class={`bg-primary hover:bg-cyan-700 px-8 py-3 rounded-3xl text-white capitalized ${additionalStyle}`}
+  class={`bg-primary hover:bg-cyan-700 px-8 py-3 rounded-3xl text-white capitalized ${className}`}
 >
   <slot />
 </button>
