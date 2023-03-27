@@ -2,10 +2,149 @@
 import Section from "../components/section.astro";
 import Container from "../components/container.astro";
 import SectionHeader from "../components/sectionHeader.astro";
+import Button from "../components/button.astro";
+
+interface FilterButton {
+  name: string;
+  dataFilter: string;
+}
+
+interface IsotopeItems {
+  itemselector: string;
+  dataClass: string;
+  dataCategory: string;
+  imageSrc: string;
+}
+
+const filterBtn: FilterButton[] = [
+  {
+    name: "all",
+    dataFilter: "*",
+  },
+  {
+    name: "app",
+    dataFilter: ".app",
+  },
+  {
+    name: "card",
+    dataFilter: ".card",
+  },
+  {
+    name: "web",
+    dataFilter: ".web",
+  },
+];
+
+const isotopeItems: IsotopeItems[] = [
+  {
+    itemselector: "item",
+    dataClass: "app",
+    dataCategory: "app",
+    imageSrc: "/images/app1.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "web",
+    dataCategory: "web",
+    imageSrc: "/images/web1.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "card",
+    dataCategory: "card",
+    imageSrc: "/images/card1.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "web",
+    dataCategory: "web",
+    imageSrc: "/images/web2.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "card",
+    dataCategory: "card",
+    imageSrc: "/images/card2.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "app",
+    dataCategory: "app",
+    imageSrc: "/images/app2.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "card",
+    dataCategory: "card",
+    imageSrc: "/images/card3.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "app",
+    dataCategory: "app",
+    imageSrc: "/images/app3.jpg",
+  },
+  {
+    itemselector: "item",
+    dataClass: "web",
+    dataCategory: "web",
+    imageSrc: "/images/web3.jpg",
+  },
+];
 ---
 
 <Section>
   <Container>
-    <SectionHeader />
+    <SectionHeader sectionTitle="Portfolio">
+      <p>
+        Zelion's portfolio showcases their innovative and sustainable
+        agriculture technology, including advanced LED grow lights and automated
+        hydroponic systems
+      </p>
+    </SectionHeader>
+    <div class="flex justify-center gap-x-4 mb-10 filters-button-group">
+      {
+        filterBtn.map(({ name, dataFilter }) => {
+          return (
+            <button
+              class="bg-primary hover:bg-cyan-700 px-8 py-3 rounded-3xl text-white uppercase font-semibold text-sm "
+              data-filter={dataFilter}
+            >
+              {name}
+            </button>
+          );
+        })
+      }
+    </div>
+    <div class="isotope-items flex">
+      {
+        isotopeItems.map(
+          ({ itemselector, dataClass, dataCategory, imageSrc }) => {
+            return (
+              <div
+                class={`${itemselector} ${dataClass} w-2/6 p-4`}
+                data-category={dataCategory}
+              >
+                <img src={imageSrc} alt={dataCategory} class="w-full" />
+              </div>
+            );
+          }
+        )
+      }
+    </div>
   </Container>
 </Section>
+
+<script is:inline src="/js/isotope.pkgd.min.js"></script>
+<script type="module">
+  var iso = new Isotope(".isotope-items", {
+    itemSelector: ".item",
+    layoutMode: "masonry",
+  });
+
+  var filtersElem = document.querySelector(".filters-button-group");
+  filtersElem.addEventListener("click", function (event) {
+    var filterValue = event.target.getAttribute("data-filter");
+    iso.arrange({ filter: filterValue });
+  });
+</script>
