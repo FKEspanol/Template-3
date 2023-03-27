@@ -2,6 +2,51 @@
 import Section from "../components/section.astro";
 import Container from "../components/container.astro";
 import SectionHeader from "../components/sectionHeader.astro";
+
+interface CardContent {
+  fontIcon: string;
+  cardHeader: string;
+  cardParagraph: string;
+}
+
+const cardContent: CardContent[] = [
+  {
+    fontIcon: "fas fa-rocket",
+    cardHeader: "Technology",
+    cardParagraph:
+      "Zelion's technology is sustainable, efficient and user-friendly, offering advanced LED grow lights and hydroponic systems.",
+  },
+  {
+    fontIcon: "fas fa-paint-brush",
+    cardHeader: "Design",
+    cardParagraph:
+      "Zelion prioritizes design, creating sleek and modern products that are easy to install and use for a wider range of users.",
+  },
+  {
+    fontIcon: "fas fa-user-shield",
+    cardHeader: "Security",
+    cardParagraph:
+      "Zelion takes security seriously to protect their customer's data and privacy, ensuring safe transactions and secure online interactions.",
+  },
+  {
+    fontIcon: "fas fa-people-group",
+    cardHeader: "Community",
+    cardParagraph:
+      "Zelion fosters a strong community around sustainable agriculture, sharing knowledge and expertise through online resources, forums and events.",
+  },
+  {
+    fontIcon: "fas fa-credit-card",
+    cardHeader: "E-Commerce",
+    cardParagraph:
+      "Zelion offers an e-commerce platform for customers to purchase their sustainable agriculture technology, providing a seamless and secure online shopping experience.",
+  },
+  {
+    fontIcon: "fas fa-building",
+    cardHeader: "Enterprise",
+    cardParagraph:
+      "Zelion supports sustainable agriculture enterprises by providing advanced technology and expertise to improve crop yields and minimize environmental impact.",
+  },
+];
 ---
 
 <Section id="services" className="bg-[#f5f6f7]">
@@ -12,6 +57,25 @@ import SectionHeader from "../components/sectionHeader.astro";
         iusto tenetur nam dolores exercitationem sunt.
       </p>
     </SectionHeader>
-    <div class="grid grid-cols-3 gap-5"></div>
+    <div class="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
+      {
+        cardContent.map(({ fontIcon, cardHeader, cardParagraph }) => {
+          return (
+            <div class="block px-12 py-20 rounded-lg hover:shadow-2xl hover:-translate-y-3 duration-500 bg-white">
+              <i class={`${fontIcon} text-4xl text-gray-600 mb-3 primary`} />
+              <h5 class="text-gray-900 text-2xl leading-tight font-semibold uppercase mb-4 after:block after:h-1 after:w-full after:bg-gray-200 w-fit after:mt-2">
+                {cardHeader}
+              </h5>
+              <p class="text-gray-700 text-[15px] leading-relaxed mb-5">
+                {cardParagraph}
+              </p>
+              <a href="#" class="text-primary text-xl">
+                Learn More -&gt;
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
   </Container>
 </Section>
