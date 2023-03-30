@@ -41,59 +41,83 @@ const navItems: NavItems[] = [
 ];
 ---
 
-<header class="w-full">
-  <div class="w-full py-8 absolute z-10">
-    <div class="md:container md:mx-auto px-3 lg:px-14 xl:px-20 2xl:px-32">
-      <div class="flex justify-between items-center">
-        <h1 class="text-white text-3xl font-bold uppercase">
-          <a href="#">Zelion</a>
-        </h1>
-        <div
-          class="hidden lg:flex justify-evenly text-white items-center gap-x-8"
+<header class="w-full py-8 fixed z-10 transition-all ease-out duration-300">
+  <div class="md:container md:mx-auto px-3 lg:px-14 xl:px-20 2xl:px-32">
+    <div class="flex justify-between items-center">
+      <h1 class="text-white text-3xl font-bold uppercase">
+        <a href="#">Zelion</a>
+      </h1>
+      <div
+        class="hidden lg:flex justify-evenly text-white items-center gap-x-8"
+      >
+        <a href="#" class="uppercase text-sm font-medium">Home</a>
+        <a href="#about" class="uppercase text-sm font-medium">About</a>
+        <a href="#services" class="uppercase text-sm font-medium">Services</a>
+        <a href="#portfolio" class="uppercase text-sm font-medium">Portfolio</a>
+        <a href="#team" class="uppercase text-sm font-medium">Team</a>
+        <a href="#contact" class="uppercase text-sm font-medium">Contact</a>
+        <Button
+          className="uppercase font-semibold text-sm shadow-gray-700 shadow-lg"
         >
-          <a href="#" class="uppercase text-sm font-medium">Home</a>
-          <a href="#about" class="uppercase text-sm font-medium">About</a>
-          <a href="#services" class="uppercase text-sm font-medium">Services</a>
-          <a href="#portfolio" class="uppercase text-sm font-medium"
-            >Portfolio</a
-          >
-          <a href="#team" class="uppercase text-sm font-medium">Team</a>
-          <a href="#contact" class="uppercase text-sm font-medium">Contact</a>
-          <Button className="uppercase font-semibold text-sm">Join Us</Button>
-        </div>
-        <i id="menuBtn" class="lg:hidden fas fa-bars text-white text-2xl"></i>
+          Join Us
+        </Button>
       </div>
+      <i
+        id="menuBtn"
+        class="lg:hidden fas fa-bars text-white text-2xl cursor-pointer"></i>
     </div>
   </div>
-  <div
-    id="sideBarMenu"
-    class="fixed z-10 -left-96 w-96 h-screen bg-primary px-6 pt-8"
-  >
-    <h2 class="text-4xl px-5 font-semibold text-white mb-10">Astro</h2>
-    <ul class="w-full">
-      {
-        navItems.map(({ href, linkName, icon }) => {
-          return (
-            <li class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300">
-              <i class={`${icon} text-white text-sm`} />
-              <a
-                href={href}
-                class="uppercase text-base font-medium text-white w-full"
-              >
-                {linkName}
-              </a>
-            </li>
-          );
-        })
-      }
-    </ul>
-  </div>
 </header>
+
+<div
+  id="sideBarMenu"
+  class="fixed z-10 -left-96 w-96 h-screen bg-primary px-6 pt-8"
+>
+  <h2 class="text-4xl px-5 font-semibold text-white mb-10">Astro</h2>
+  <ul class="w-full">
+    {
+      navItems.map(({ href, linkName, icon }) => {
+        return (
+          <li class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300">
+            <i class={`${icon} text-white text-sm`} />
+            <a
+              href={href}
+              class="uppercase text-base font-medium text-white w-full"
+            >
+              {linkName}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>
 
 <script>
   const menuBtn = document.getElementById("menuBtn");
   const sideBarMenu = document.getElementById("sideBarMenu");
+  const header = document.querySelector("header.fixed");
 
+  // change header bg-color and padding onscroll
+  window.onscroll = () => {
+    if (window.scrollY >= 100) {
+      header.classList.remove("py-8");
+      header.classList.add("py-5", "bg-cyan-600");
+    } else {
+      header.classList.remove("py-5", "bg-cyan-600");
+      header.classList.add("py-8");
+    }
+  };
+
+  //change header bg-color and padding if scrollY is greater than 100 on page load or reload
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.scrollY >= 100) {
+      header.classList.remove("py-8");
+      header.classList.add("py-5", "bg-cyan-600");
+    }
+  });
+
+  // sidebar menu
   let isOpen = false;
   menuBtn.addEventListener("click", function () {
     console.log("sadfshfj");
