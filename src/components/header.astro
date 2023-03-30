@@ -1,5 +1,44 @@
 ---
 import Button from "./button.astro";
+
+interface NavItems {
+  href: string;
+  linkName: string;
+  icon: string;
+}
+
+const navItems: NavItems[] = [
+  {
+    href: "#",
+    linkName: "Home",
+    icon: "fas fa-home",
+  },
+  {
+    href: "#about",
+    linkName: "about",
+    icon: "fa fa-info-circle",
+  },
+  {
+    href: "#services",
+    linkName: "Services",
+    icon: "fa fa-truck",
+  },
+  {
+    href: "#portfolio",
+    linkName: "Portfolio",
+    icon: "fa fa-project-diagram",
+  },
+  {
+    href: "#team",
+    linkName: "Team",
+    icon: "fas fa-home",
+  },
+  {
+    href: "#contact",
+    linkName: "Contact",
+    icon: "fa fa-phone",
+  },
+];
 ---
 
 <header class="w-full">
@@ -32,59 +71,21 @@ import Button from "./button.astro";
   >
     <h2 class="text-4xl px-5 font-semibold text-white mb-10">Astro</h2>
     <ul class="w-full">
-      <li
-        class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300"
-      >
-        <i class="fas fa-home text-white text-sm"></i>
-        <a href="#" class="uppercase text-base font-medium text-white w-full"
-          >Home</a
-        >
-      </li>
-      <li
-        class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300"
-      >
-        <i class="fa fa-info-circle text-white text-sm"></i>
-        <a
-          href="#about"
-          class="uppercase text-base font-medium text-white w-full">About</a
-        >
-      </li>
-      <li
-        class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300"
-      >
-        <i class="fa fa-truck text-white text-sm"></i>
-        <a
-          href="#services"
-          class="uppercase text-base font-medium text-white w-full">Services</a
-        >
-      </li>
-      <li
-        class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300"
-      >
-        <i class="fa fa-project-diagram text-white text-sm"></i>
-        <a
-          href="#portfolio"
-          class="uppercase text-base font-medium text-white w-full">Portfolio</a
-        >
-      </li>
-      <li
-        class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300"
-      >
-        <i class="fa fa-users text-white text-sm"></i>
-        <a
-          href="#team"
-          class="uppercase text-base font-medium text-white w-full">Team</a
-        >
-      </li>
-      <li
-        class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300"
-      >
-        <i class="fa fa-phone text-white text-sm"></i>
-        <a
-          href="#contact"
-          class="uppercase text-base font-medium text-white w-full">Contact</a
-        >
-      </li>
+      {
+        navItems.map(({ href, linkName, icon }) => {
+          return (
+            <li class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300">
+              <i class={`${icon} text-white text-sm`} />
+              <a
+                href={href}
+                class="uppercase text-base font-medium text-white w-full"
+              >
+                {linkName}
+              </a>
+            </li>
+          );
+        })
+      }
     </ul>
   </div>
 </header>
