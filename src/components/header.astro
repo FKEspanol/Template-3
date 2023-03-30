@@ -1,5 +1,6 @@
 ---
 import Button from "./button.astro";
+import Container from "./container.astro";
 
 interface NavItems {
   href: string;
@@ -9,7 +10,7 @@ interface NavItems {
 
 const navItems: NavItems[] = [
   {
-    href: "#",
+    href: "#home",
     linkName: "Home",
     icon: "fas fa-home",
   },
@@ -41,21 +42,31 @@ const navItems: NavItems[] = [
 ];
 ---
 
-<header class="w-full py-8 fixed z-10 transition-all ease-out duration-300">
-  <div class="md:container md:mx-auto px-3 lg:px-14 xl:px-20 2xl:px-32">
+<header
+  id="header"
+  class="w-full py-10 fixed z-10 transition-all ease-out duration-300"
+>
+  <Container>
     <div class="flex justify-between items-center">
       <h1 class="text-white text-3xl font-bold uppercase">
-        <a href="#">Zelion</a>
+        <a href="#home" class="nav-link">Zelion</a>
       </h1>
       <div
         class="hidden lg:flex justify-evenly text-white items-center gap-x-8"
       >
-        <a href="#" class="uppercase text-sm font-medium">Home</a>
-        <a href="#about" class="uppercase text-sm font-medium">About</a>
-        <a href="#services" class="uppercase text-sm font-medium">Services</a>
-        <a href="#portfolio" class="uppercase text-sm font-medium">Portfolio</a>
-        <a href="#team" class="uppercase text-sm font-medium">Team</a>
-        <a href="#contact" class="uppercase text-sm font-medium">Contact</a>
+        <a href="#home" class="uppercase text-sm font-medium nav-link">Home</a>
+        <a href="#about" class="uppercase text-sm font-medium nav-link">About</a
+        >
+        <a href="#services" class="uppercase text-sm font-medium nav-link"
+          >Services</a
+        >
+        <a href="#portfolio" class="uppercase text-sm font-medium nav-link"
+          >Portfolio</a
+        >
+        <a href="#team" class="uppercase text-sm font-medium nav-link">Team</a>
+        <a href="#contact" class="uppercase text-sm font-medium nav-link"
+          >Contact</a
+        >
         <Button
           className="uppercase font-semibold text-sm shadow-gray-700 shadow-lg"
         >
@@ -66,14 +77,24 @@ const navItems: NavItems[] = [
         id="menuBtn"
         class="lg:hidden fas fa-bars text-white text-2xl cursor-pointer"></i>
     </div>
-  </div>
+  </Container>
 </header>
 
 <div
   id="sideBarMenu"
   class="fixed z-10 -left-96 w-96 h-screen bg-primary px-6 pt-8"
 >
-  <h2 class="text-4xl px-5 font-semibold text-white mb-10">Astro</h2>
+  <div class="flex w-full justify-between items-start mb-10">
+    <h2 class="">
+      <a href="#home" class="text-4xl px-5 font-semibold text-white nav-link"
+        >Astro</a
+      >
+    </h2>
+    <i
+      id="sideNavCloseBtn"
+      class="fa fa-arrow-left text-white text-4xl cursor-pointer"></i>
+  </div>
+
   <ul class="w-full">
     {
       navItems.map(({ href, linkName, icon }) => {
@@ -82,7 +103,7 @@ const navItems: NavItems[] = [
             <i class={`${icon} text-white text-sm`} />
             <a
               href={href}
-              class="uppercase text-base font-medium text-white w-full"
+              class="uppercase text-base font-medium text-white w-full nav-link"
             >
               {linkName}
             </a>
@@ -96,25 +117,45 @@ const navItems: NavItems[] = [
 <script>
   const menuBtn = document.getElementById("menuBtn");
   const sideBarMenu = document.getElementById("sideBarMenu");
-  const header = document.querySelector("header.fixed");
+  const header = document.getElementById("header");
+  const sideNavCloseBtn = document.getElementById("sideNavCloseBtn");
+
+  //store the value of this method immediately in an array
+  const selectClass = (className) => [
+    ...document.getElementsByClassName(className),
+  ];
 
   // change header bg-color and padding onscroll
   window.onscroll = () => {
     if (window.scrollY >= 100) {
-      header.classList.remove("py-8");
-      header.classList.add("py-5", "bg-cyan-600");
+      header.classList.remove("py-10");
+      header.classList.add("py-5", "bg-cyan-600", "shadow-xl");
     } else {
-      header.classList.remove("py-5", "bg-cyan-600");
-      header.classList.add("py-8");
+      header.classList.remove("py-5", "bg-cyan-600", "shadow-xl");
+      header.classList.add("py-10");
     }
   };
 
   //change header bg-color and padding if scrollY is greater than 100 on page load or reload
   document.addEventListener("DOMContentLoaded", () => {
     if (window.scrollY >= 100) {
-      header.classList.remove("py-8");
+      header.classList.remove("py-10");
       header.classList.add("py-5", "bg-cyan-600");
     }
+  });
+
+  // scroll to an element below the header
+
+  const navLinks = selectClass("nav-link");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const sectionID = link.getAttribute("href").replace("#", ""); //the href attr value of each "link" is the same as the section id value by removing the # symbol
+      window.scrollTo({
+        top: document.getElementById(sectionID).offsetTop - header.offsetHeight,
+        behavior: "smooth",
+      });
+    });
   });
 
   // sidebar menu
@@ -130,5 +171,11 @@ const navItems: NavItems[] = [
       sideBarMenu.style.left = "-24rem";
       isOpen = !isOpen;
     }
+  });
+
+  sideNavCloseBtn.addEventListener("click", function () {
+    sideBarMenu.style.transition = "left 0.3s ease-out";
+    sideBarMenu.style.left = "-24rem";
+    isOpen = !isOpen;
   });
 </script>
