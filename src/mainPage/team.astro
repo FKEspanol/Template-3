@@ -4,6 +4,7 @@ import SectionHeader from "../components/sectionHeader.astro";
 import Container from "../components/container.astro";
 
 interface Team {
+  aos: string;
   imageSource: string;
   memberName: string;
   memberPosition: string;
@@ -12,6 +13,7 @@ interface Team {
 
 const team: Team[] = [
   {
+    aos: "fade-right",
     imageSource: "/images/team-1.jpg",
     memberName: "John Doe",
     memberPosition: "Chief Executive Officer",
@@ -19,6 +21,7 @@ const team: Team[] = [
       "Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut",
   },
   {
+    aos: "fade-down",
     imageSource: "/images/team-2.jpg",
     memberName: "Kelsey Smith",
     memberPosition: "Product Manager",
@@ -26,6 +29,7 @@ const team: Team[] = [
       "Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus",
   },
   {
+    aos: "fade-left",
     imageSource: "/images/team-3.jpg",
     memberName: "Derek Jones",
     memberPosition: "CTO",
@@ -37,17 +41,18 @@ const team: Team[] = [
 
 <Section id="team">
   <Container>
-    <SectionHeader sectionTitle="Our Team">
-      <p>
-        Green Clean is a professional cleaning company that offers eco-friendly
-        cleaning
-      </p>
-    </SectionHeader>
+    <SectionHeader
+      sectionTitle="Our Team"
+      sectionPara="Green Clean is a professional cleaning company that offers eco-friendly cleaning"
+    />
     <div class="lg:grid lg:grid-cols-3">
       {
-        team.map(({ imageSource, memberName, memberPosition, quote }) => {
+        team.map(({ aos, imageSource, memberName, memberPosition, quote }) => {
           return (
-            <div class="w-full p-7 text-center shadow-xl lg:w-11/12 mx-auto mb-10">
+            <div
+              class="w-full p-7 text-center shadow-xl lg:w-11/12 mx-auto mb-10"
+              data-aos={aos}
+            >
               <img
                 src={imageSource}
                 alt={`image of ${memberPosition} ${memberName}`}

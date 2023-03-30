@@ -39,12 +39,10 @@ const inputClassStyles =
 
 <Section id="contact">
   <Container>
-    <SectionHeader sectionTitle="Contact Us">
-      <p>
-        Green Clean is a professional cleaning company that offers eco-friendly
-        cleaning.
-      </p>
-    </SectionHeader>
+    <SectionHeader
+      sectionTitle="Contact Us"
+      sectionPara="Green Clean is a professional cleaning company that offers eco-friendly cleaning."
+    />
   </Container>
   <div class="mapouter">
     <div class="gmap_canvas">
@@ -72,16 +70,16 @@ const inputClassStyles =
       </style>
     </div>
   </div>
+</Section>
+<Section>
   <Container>
-    <SectionHeader sectionTitle="Get In Touch">
-      <p>
-        Green Clean is a professional cleaning company that offers eco-friendly
-        cleaning.
-      </p>
-    </SectionHeader>
+    <SectionHeader
+      sectionTitle="Get In Touch"
+      sectionPara="Green Clean is a professional cleaning company that offers eco-friendly cleaning."
+    />
 
     <div class="lg:grid grid-cols-3 mb-5 gap-x-10">
-      <div class="col-start-1 col-end-2">
+      <div class="col-start-1 col-end-2" data-aos="fade-right">
         {
           contactInformation.map((item) => {
             return (
@@ -98,7 +96,7 @@ const inputClassStyles =
           })
         }
       </div>
-      <div class="col-start-2 col-end-4">
+      <div class="col-start-2 col-end-4" data-aos="fade-up">
         <form class="xl:p-10 w-full bg-white">
           <div class="grid grid-cols-2 gap-7 mb-7">
             <input
