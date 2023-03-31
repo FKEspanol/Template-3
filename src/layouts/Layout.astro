@@ -45,6 +45,10 @@ const { title } = Astro.props;
   :root {
     --swiper-navigation-size: 24px;
   }
+
+  * {
+    overflow-x: hidden;
+  }
   html {
     font-family: "Roboto", sans-serif;
     background-color: #f6f6f6;
@@ -52,11 +56,6 @@ const { title } = Astro.props;
   code {
     font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
       DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-
-  body {
-    min-height: 100vh;
-    background-color: #fff;
   }
 
   .bg-primary {
