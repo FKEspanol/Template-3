@@ -1,7 +1,5 @@
----
-const { className = "" } = Astro.props;
----
-
-<div class={`container 2xl:w-9/12 mx-auto px-3 md:px-0 ${className}`}>
-  <slot />
+<div class="container 2xl:w-10/12 mx-auto px-3 md:px-0">
+  <div class="2xl:w-10/12 mx-auto">
+    <slot />
+  </div>
 </div>
