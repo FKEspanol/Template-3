@@ -31,7 +31,7 @@ const contents: HeroContent[] = [
 ---
 
 <!-- start of hero section --><!-- Slider main container -->
-<div id="home" class="swiper w-full h-screen">
+<div id="home" class="swiper w-full h-[85vh] sm:h-screen">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper relative">
     <!-- Slides -->
@@ -48,10 +48,10 @@ const contents: HeroContent[] = [
             <div class="absolute inset-0 bg-stone-800 opacity-80" />
             <Container>
               <div class="block m-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 text-center">
-                <h1 class="text-5xl lg:text-6xl font-semibold text-white pb-8 leading-snug">
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-semibold text-white pb-8 md:leading-snug">
                   {item.header}
                 </h1>
-                <p class="text-lg text-white pb-7 xl:w-4/5 2xl:w-2/4 xl:mx-auto">
+                <p class="text-sm md:text-lg text-white pb-7 xl:w-4/5 2xl:w-2/4 xl:mx-auto">
                   {item.paragraph}
                 </p>
                 <Button className="uppercase font-semibold">Get Started</Button>
@@ -67,11 +67,11 @@ const contents: HeroContent[] = [
   <div class="swiper-pagination"></div>
   <!-- If we need navigation buttons -->
   <div
-    class="swiper-button-prev ml-3 w-14 h-14 rounded-full bg-neutral-500 text-white"
+    class="swiper-button-prev sm:ml-3 sm:w-14 sm:h-14 sm:rounded-full sm:bg-neutral-500 text-white"
   >
   </div>
   <div
-    class="swiper-button-next mr-3 w-14 h-14 rounded-full bg-neutral-500 text-white"
+    class="swiper-button-next sm:mr-3 sm:w-14 sm:h-14 sm:rounded-full sm:bg-neutral-500 text-white"
   >
   </div>
 </div>
