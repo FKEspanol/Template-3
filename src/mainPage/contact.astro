@@ -40,7 +40,7 @@ const inputClassStyles =
 <Section id="contact">
   <Container>
     <SectionHeader sectionTitle="Contact Us">
-      <p>
+      <p class="text-sm md:text-base">
         Green Clean is a professional cleaning company that offers eco-friendly
         cleaning.
       </p>
@@ -73,8 +73,8 @@ const inputClassStyles =
     </div>
   </div>
   <Container>
-    <SectionHeader sectionTitle="Get In Touch">
-      <p>
+    <SectionHeader sectionTitle="Get In Touch" className="pt-16">
+      <p class="text-sm md:text-base">
         Green Clean is a professional cleaning company that offers eco-friendly
         cleaning.
       </p>
@@ -88,7 +88,7 @@ const inputClassStyles =
               <div class="flex gap-x-5 mb-20">
                 <i class={`${item.fontIconClass} text-3xl text-primary`} />
                 <div class="block">
-                  <h3 class="text-2xl text-gray-600 mb-3 uppercase font-semibold">
+                  <h3 class="text-gray-600 text-xl md:text-2xl leading-tight font-semibold uppercase mb-4 after:block after:h-1 after:w-full after:bg-gray-200 w-fit after:mt-2">
                     {item.infoName}
                   </h3>
                   <p class="text-sm">{item.info}</p>

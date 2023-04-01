@@ -38,7 +38,7 @@ const team: Team[] = [
 <Section id="team">
   <Container>
     <SectionHeader sectionTitle="Our Team">
-      <p>
+      <p class="text-sm md:text-base">
         Green Clean is a professional cleaning company that offers eco-friendly
         cleaning
       </p>
@@ -55,7 +55,9 @@ const team: Team[] = [
               />
               <h4 class="text-lg font-semibold">{memberName}</h4>
               <small class="italic">{memberPosition}</small>
-              <p class=" italic text-gray-600 my-5">{quote}</p>
+              <p class="text-sm md:text-base italic text-gray-600 my-5">
+                {quote}
+              </p>
               <div class="flex justify-center align-middle gap-x-3">
                 <a target="_blank" href="https://www.facebook.com">
                   <div class="fab fa-facebook text-xl" />
