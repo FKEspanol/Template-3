@@ -37,12 +37,10 @@ const team: Team[] = [
 
 <Section id="team">
   <Container>
-    <SectionHeader sectionTitle="Our Team">
-      <p class="text-sm md:text-base">
-        Green Clean is a professional cleaning company that offers eco-friendly
-        cleaning
-      </p>
-    </SectionHeader>
+    <SectionHeader
+      title="Our Team"
+      paragraph="Green Clean is a professional cleaning company that offers eco-friendly cleaning"
+    />
     <div class="lg:grid lg:grid-cols-3">
       {
         team.map(({ imageSource, memberName, memberPosition, quote }) => {

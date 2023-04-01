@@ -39,12 +39,10 @@ const inputClassStyles =
 
 <Section id="contact">
   <Container>
-    <SectionHeader sectionTitle="Contact Us">
-      <p class="text-sm md:text-base">
-        Green Clean is a professional cleaning company that offers eco-friendly
-        cleaning.
-      </p>
-    </SectionHeader>
+    <SectionHeader
+      title="Contact Us"
+      paragraph="Green Clean is a professional cleaning company that offers eco-friendly cleaning."
+    />
   </Container>
   <div class="mapouter">
     <div class="gmap_canvas">
@@ -73,12 +71,11 @@ const inputClassStyles =
     </div>
   </div>
   <Container>
-    <SectionHeader sectionTitle="Get In Touch" className="pt-16">
-      <p class="text-sm md:text-base">
-        Green Clean is a professional cleaning company that offers eco-friendly
-        cleaning.
-      </p>
-    </SectionHeader>
+    <SectionHeader
+      title="Get In Touch"
+      paragraph="Green Clean is a professional cleaning company that offers eco-friendly cleaning."
+      className="pt-16"
+    />
 
     <div class="lg:grid grid-cols-3 mb-5 gap-x-10">
       <div class="col-start-1 col-end-2">
@@ -88,7 +85,7 @@ const inputClassStyles =
               <div class="flex gap-x-5 mb-20">
                 <i class={`${item.fontIconClass} text-3xl text-primary`} />
                 <div class="block">
-                  <h3 class="text-gray-600 text-xl md:text-2xl leading-tight font-semibold uppercase mb-4 after:block after:h-1 after:w-full after:bg-gray-200 w-fit after:mt-2">
+                  <h3 class="text-gray-600 text-xl md:text-2xl leading-tight font-semibold uppercase mb-4 after:block after:h-[2px] md:after:h-1 after:w-full after:bg-gray-200 w-fit after:mt-2">
                     {item.infoName}
                   </h3>
                   <p class="text-sm">{item.info}</p>

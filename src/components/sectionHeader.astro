@@ -1,12 +1,14 @@
 ---
-const { sectionTitle = "", className = "" } = Astro.props;
+const { title = "", paragraph = "", className = "" } = Astro.props;
 ---
 
 <div class="mb-16 text-center">
   <h2
-    class={`text-gray-600 flex items-center justify-center gap-x-3 before:w-12 before:h-1 before:block before:bg-cyan-600 after:w-12 after:h-1 after:block after:bg-cyan-600 mb-2 text-2xl md:text-3xl font-bold ${className}`}
+    class={`text-gray-600 flex items-center justify-center gap-x-3 before:w-6 md:before:w-12 before:h-[2px] md:before:h-1 before:block before:bg-cyan-600 after:w-6 md:after:w-12 after:h-[2px] md:after:h-1 after:block after:bg-cyan-600 mb-2 text-2xl md:text-3xl font-bold ${className}`}
   >
-    {sectionTitle}
+    {title}
   </h2>
-  <slot />
+  <p class="text-sm md:text-base">
+    {paragraph}
+  </p>
 </div>
