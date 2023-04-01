@@ -5,10 +5,16 @@ const { title = "", paragraph = "", className = "" } = Astro.props;
 <div class="mb-16 text-center">
   <h2
     class={`text-gray-600 flex items-center justify-center gap-x-3 before:w-6 md:before:w-12 before:h-[2px] md:before:h-1 before:block before:bg-cyan-600 after:w-6 md:after:w-12 after:h-[2px] md:after:h-1 after:block after:bg-cyan-600 mb-2 text-2xl md:text-3xl font-bold ${className}`}
+    data-aos="fade-down"
+    data-aos-duration="2000"
   >
     {title}
   </h2>
-  <p class="text-sm md:text-base">
+  <p
+    class="text-sm md:text-base"
+    data-aos="fade-right"
+    data-aos-duration="2000"
+  >
     {paragraph}
   </p>
 </div>

@@ -8,6 +8,7 @@ interface Team {
   memberName: string;
   memberPosition: string;
   quote: string;
+  aos: string;
 }
 
 const team: Team[] = [
@@ -17,6 +18,7 @@ const team: Team[] = [
     memberPosition: "Chief Executive Officer",
     quote:
       "Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut",
+    aos: "fade-right",
   },
   {
     imageSource: "/images/team-2.jpg",
@@ -24,6 +26,7 @@ const team: Team[] = [
     memberPosition: "Product Manager",
     quote:
       "Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus",
+    aos: "fade-down",
   },
   {
     imageSource: "/images/team-3.jpg",
@@ -31,6 +34,7 @@ const team: Team[] = [
     memberPosition: "CTO",
     quote:
       "Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara",
+    aos: "fade-left",
   },
 ];
 ---
@@ -43,9 +47,13 @@ const team: Team[] = [
     />
     <div class="lg:grid lg:grid-cols-3">
       {
-        team.map(({ imageSource, memberName, memberPosition, quote }) => {
+        team.map(({ imageSource, memberName, memberPosition, quote, aos }) => {
           return (
-            <div class="w-full p-7 text-center shadow-xl lg:w-11/12 mx-auto mb-10">
+            <div
+              class="w-full p-7 text-center shadow-xl lg:w-11/12 mx-auto mb-10"
+              data-aos={aos}
+              data-aos-duration="2000"
+            >
               <img
                 src={imageSource}
                 alt={`image of ${memberPosition} ${memberName}`}

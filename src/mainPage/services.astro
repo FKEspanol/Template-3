@@ -59,7 +59,11 @@ const cardContent: CardContent[] = [
       {
         cardContent.map(({ fontIcon, cardHeader, cardParagraph }) => {
           return (
-            <div class="block px-12 py-20 rounded-lg hover:shadow-2xl hover:-translate-y-3 duration-500 bg-white">
+            <div
+              class="block px-12 py-20 rounded-lg hover:shadow-2xl hover:-translate-y-3 duration-500 bg-white"
+              data-aos="zoom-in"
+              data-aos-duration="2000"
+            >
               <i class={`${fontIcon} text-4xl text-primary mb-3 primary`} />
               <h5 class="text-gray-600 text-xl md:text-2xl leading-tight font-semibold uppercase mb-4 after:block after:h-[2px] md:after:h-1 after:w-full after:bg-gray-200 w-fit after:mt-2">
                 {cardHeader}
