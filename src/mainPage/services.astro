@@ -55,15 +55,15 @@ const cardContent: CardContent[] = [
       title="Services"
       paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem iusto tenetur nam dolores exercitationem sunt."
     />
-    <div class="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
+    <div
+      class="grid xl:grid-cols-3 md:grid-cols-2 gap-6 pb-10"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
       {
         cardContent.map(({ fontIcon, cardHeader, cardParagraph }) => {
           return (
-            <div
-              class="block px-12 py-20 rounded-lg hover:shadow-2xl hover:-translate-y-3 duration-500 bg-white"
-              data-aos="zoom-in"
-              data-aos-duration="2000"
-            >
+            <div class="block px-12 py-20 rounded-lg transition-all hover:shadow-lg hover:-translate-y-3 duration-500 bg-white">
               <i class={`${fontIcon} text-4xl text-primary mb-3 primary`} />
               <h5 class="text-gray-600 text-xl md:text-2xl leading-tight font-semibold uppercase mb-4 after:block after:h-[2px] md:after:h-1 after:w-full after:bg-gray-200 w-fit after:mt-2">
                 {cardHeader}
