@@ -80,7 +80,7 @@ const navItems: NavItems[] = [
 
 <div
   id="sideBarMenu"
-  class="fixed z-10 -left-96 w-96 h-screen bg-primary px-6 pt-8"
+  class="fixed left-0 top-0 bottom-0 z-10 w-0 h-screen bg-primary pt-8 transition-all ease-out duration-300 overflow-hidden"
 >
   <div class="flex w-full justify-between items-start mb-10">
     <h2 class="">
@@ -97,7 +97,7 @@ const navItems: NavItems[] = [
     {
       navItems.map(({ href, linkName, icon }) => {
         return (
-          <li class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300">
+          <li class="flex gap-x-4 px-5 py-5 hover:bg-cyan-700 hover:cursor-pointer transition ease-in-out duration-300 w-full">
             <i class={`${icon} text-white text-sm`} />
             <a
               href={href}
@@ -161,19 +161,25 @@ const navItems: NavItems[] = [
   menuBtn.addEventListener("click", function () {
     console.log("sadfshfj");
     if (!isOpen) {
-      sideBarMenu.style.transition = "left 0.3s ease-out";
-      sideBarMenu.style.left = "0";
-      isOpen = !isOpen;
+      if (document.body.clientWidth >= 500) {
+        sideBarMenu.classList.add("w-96", "px-6"); //show paddings when sidebar is open
+        sideBarMenu.classList.remove("w-0");
+        isOpen = !isOpen;
+      } else {
+        sideBarMenu.classList.add("w-full", "px-6"); //remove paddings when sidebar is closed
+        sideBarMenu.classList.remove("w-0");
+        isOpen = !isOpen;
+      }
     } else {
-      sideBarMenu.style.transition = "left 0.3s ease-out";
-      sideBarMenu.style.left = "-24rem";
+      sideBarMenu.classList.remove("w-96", "w-full", "px-6"); //remove paddings when sidebar is closed
+      sideBarMenu.classList.add("w-0");
       isOpen = !isOpen;
     }
   });
 
   sideNavCloseBtn.addEventListener("click", function () {
-    sideBarMenu.style.transition = "left 0.3s ease-out";
-    sideBarMenu.style.left = "-24rem";
+    sideBarMenu.classList.remove("w-96", "w-full", "px-6"); //remove paddings when sidebar is closed
+    sideBarMenu.classList.add("w-0");
     isOpen = !isOpen;
   });
 </script>
